@@ -4,7 +4,20 @@
   Please add all Javascript code to this file.
   Got data working
 */
+
+$(document).on({
+    ajaxStart: function() { $('#popUp').show().removeClass('hidden');    },
+     ajaxStop: function() { $('#popUp').hide(); }
+});
+
 $(window).load(function() {
+  console.log("loading")
+
+
+
+
+  //$('#popUp').show().removeClass('hidden');
+
   $.get("https://accesscontrolalloworiginall.herokuapp.com/http://digg.com/api/news/popular.json", function(results){
     var titleDigg = results.data.feed[0].content.title;
     $(".first-h").text(titleDigg);
@@ -30,7 +43,10 @@ $(window).load(function() {
     //$(".fourth-h").text(resultsD.response.results[0].webTitle);
     $(".fifth-h").text(resultsE.data.children[0].data.title);
   });
+});
 
+
+/*
   $.getJSON(
         "http://www.reddit.com/r/all.json?jsonp=?",
         function foo(data)
@@ -53,20 +69,11 @@ $(window).load(function() {
         //  .error(function() { alert("error"); })
           //.complete(function() { alert("complete"); });
 });
+*/
 
-$(document).ready(function(){
-  $("#popup").addClass(".loader");
-  console.log("poop");
 
-  $('h3').on('click', function() {
-      console.log("testing");
-      $('#popUp').show().removeClass('hidden');
-  });
-  $('.closePopUp').on('click', function(){
-      $('#popUp').hide();
-  });
-});
 
+/*
 $(".first-link").click(function(){
   console.log("hello");
 
@@ -89,12 +96,12 @@ console.log("hello");
 
 $(".fifth-link").click(function(){
   console.log("hello");
-
 });
 
 //9be4a5cd-ef5e-4299-b2be-20427c6ca171
 
 //a95641f41d1343b6b44c9c7f0e8aef2e
+*/
 
 $("#search").click(function(event){
   event.preventDefault();
@@ -109,9 +116,9 @@ $("container").click(function(event){
   console.log("s#searchearch");
 });
 
-$(".closePopUp").click(function(event){
-  event.preventDefault();
-  $("#popup").toggleClass("hidden");
+$(".closePopUp").click(function(){
+console.log('close');
+  $('#popUp').hide();
 });
 
 $(".logo").click(function(event){

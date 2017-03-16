@@ -3,7 +3,20 @@
   Michael Lombardo
   Please add all Javascript code to this file.
 */
+$(document).ready(function(){
 
+$('h3').on('click', function() {
+    console.log("testing");
+    $('#popUp').show().removeClass('hidden');
+
+});
+
+$('.closePopUp').on('click', function(){
+    $('#popUp').hide();
+});
+
+
+});
 
 
 $(".first-link").click(function(){
@@ -32,6 +45,29 @@ $(".fourth-link").click(function(){
     console.log(resultsD);
   });
 console.log("hello");
+});
+
+$(".fifth-link").click(function(){
+  $.getJSON(
+        "http://www.reddit.com/r/all.json?jsonp=?",
+        function foo(data)
+        {
+          $.each(
+            data.data.children.slice(0, 10),
+            function (i, post) {
+              console.log(post.data.title );
+              console.log(post.data.url );
+              console.log(post.data.permalink );
+              console.log(post.data.ups );
+              console.log(post.data.downs );
+
+            }
+          )
+        }
+      )
+      .success(function() { alert("second success"); })
+      .error(function() { alert("error"); })
+      .complete(function() { alert("complete"); });
 });
 
 //9be4a5cd-ef5e-4299-b2be-20427c6ca171

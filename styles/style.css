@@ -24,7 +24,8 @@
 }
 
 #popUp.loader {
-  background-image: url(../images/ajax_loader.gif);
+  background-image: url(../images/Tomato.gif);
+  background-size: 80px 80px;
   background-repeat: no-repeat;
   background-position: center center;
 }

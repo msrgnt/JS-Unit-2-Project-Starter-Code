@@ -20,28 +20,114 @@ $(window).load(function() {
 
   $.get("https://accesscontrolalloworiginall.herokuapp.com/http://digg.com/api/news/popular.json", function(results){
     var titleDigg = results.data.feed[0].content.title;
+    var contentDigg = results.data.feed[0].content.description;
+    var tagDigg = results.data.feed[0].content.tags[0].display_name;
+    var URLDigg = results.data.feed[0].content.original_url;
+
     $(".first-h").text(titleDigg);
+    $(".lifea").text(tagDigg);
     //console.log(results);
+
+    $(".first-link").click(function(){
+
+      console.log("yo");
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(titleDigg);
+      $(".popped-link").attr("href", URLDigg);
+      $(".popped-description").text(contentDigg);
+
+    });
   });
 
   $.get("https://accesscontrolalloworiginall.herokuapp.com/http://thedailywtf.com/api/articles/random", function(resultsB){
-    $(".second-h").text(resultsB.Title);
+    var titleWTF = resultsB.Title
+    $(".second-h").text(titleWTF);
     //console.log(resultsB);
+    var contentWTF = resultsB.Series.Description;
+    var tagWTF = resultsB.Series.Title;
+    var URLWtf = resultsB.Url;
+
+  //  $(".second-h").text(titleWTF);
+   $(".lifeb").text(tagWTF);
+    $(".second-link").click(function(){
+
+      console.log("yo");
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(titleWTF);
+      $(".popped-link").attr("href", URLWtf);
+      $(".popped-description").text(contentWTF);
+
+    });
   });
 
   $.get("https://accesscontrolalloworiginall.herokuapp.com/https://newsapi.org/v1/articles?source=techcrunch&apiKey=a95641f41d1343b6b44c9c7f0e8aef2e", function(resultsC){
-    $(".third-h").text(resultsC.articles[0].title);
-    //console.log(resultsC);
+    var newsTitle = resultsC.articles[0].title;
+    var newsDescription = resultsC.articles[0].description;
+    var newsURL = resultsC.articles[0].url;
+
+    $(".third-h").text(newsTitle);
+
+    $(".third-link").click(function(){
+
+    //  console.log(resultsC);
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(newsTitle);
+      $(".popped-link").attr("href", newsURL);
+      $(".popped-description").text(newsDescription);
+
+    });
   });
 
   $.get("https://accesscontrolalloworiginall.herokuapp.com/https://content.guardianapis.com/search?q=atlanta%20OR%20poop%20bacon&from-date=2017-01-01&api-key=9be4a5cd-ef5e-4299-b2be-20427c6ca171", function(resultsD){
-    $(".fourth-h").text(resultsD.response.results[0].webTitle);
+    var gTitle = resultsD.response.results[0].webTitle;
+    var gDescription = "The title says it all, doesn't it?";;
+    var gURL = resultsD.response.results[0].webUrl;
+
+    $(".fourth-h").text(gTitle);
     //console.log(resultsD);
+
+    $(".fourth-link").click(function(){
+
+      //console.log(resultsD);
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(gTitle);
+      $(".popped-link").attr("href", gURL);
+      $(".popped-description").text(gDescription);
+
+
+
+    });
   });
 
   $.get("https://accesscontrolalloworiginall.herokuapp.com/http://www.reddit.com/r/all.json", function(resultsE){
     //$(".fourth-h").text(resultsD.response.results[0].webTitle);
-    $(".fifth-h").text(resultsE.data.children[0].data.title);
+
+    var rTitle = resultsE.data.children[0].data.title;
+    var rDescription = "The title says it all, doesn't it?";;
+    var rURL = "https://www.reddit.com" + resultsE.data.children[0].data.permalink;
+
+    $(".fifth-h").text(rTitle);
+
+    $(".fifth-link").click(function(){
+
+      //console.log(resultsD);
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(rTitle);
+      $(".popped-link").attr("href", rURL);
+      $(".popped-description").text(rDescription);
+    console.log(resultsE);
+
+    });
   });
 });
 
@@ -73,11 +159,7 @@ $(window).load(function() {
 
 
 
-/*
-$(".first-link").click(function(){
-  console.log("hello");
 
-});
 
 $(".second-link").click(function(){
   console.log("hello");
@@ -101,7 +183,6 @@ $(".fifth-link").click(function(){
 //9be4a5cd-ef5e-4299-b2be-20427c6ca171
 
 //a95641f41d1343b6b44c9c7f0e8aef2e
-*/
 
 $("#search").click(function(event){
   event.preventDefault();

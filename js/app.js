@@ -137,7 +137,11 @@ $(window).load(function() {
     var rDescription = "The title says it all, doesn't it?";;
     var rURL = "https://www.reddit.com" + resultsE.data.children[0].data.permalink;
     var rImage = resultsE.data.children[0].data.thumbnail;
-    //console.log(rImage);
+    console.log(rImage);
+    if (rImage === "self") {
+      console.log("hooya");
+      var rImage = "images/reddit.png"
+    }
 
     $(".fifth-h").text(rTitle);
     $(".cinco").attr("src", rImage);

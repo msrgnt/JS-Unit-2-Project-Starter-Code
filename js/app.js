@@ -23,11 +23,16 @@ $(window).load(function() {
     var contentDigg = results.data.feed[0].content.description;
     var tagDigg = results.data.feed[0].content.tags[0].display_name;
     var URLDigg = results.data.feed[0].content.original_url;
+    var imgDigg = results.data.feed[0].content.media.images[0].original_url;
 
     $(".first-h").text(titleDigg);
     $(".lifea").text(tagDigg);
-    //console.log(results);
+    console.log(results);
+    $(".uno").attr("src", imgDigg);
 
+    $(".uno").css("max-width", "100%");
+
+    $(".uno").css("border-radius", 50);
     $(".first-link").click(function(){
 
       console.log("yo");
@@ -44,11 +49,17 @@ $(window).load(function() {
   $.get("https://accesscontrolalloworiginall.herokuapp.com/http://thedailywtf.com/api/articles/random", function(resultsB){
     var titleWTF = resultsB.Title
     $(".second-h").text(titleWTF);
+    var wtfImg = "images/wtf.png";
+
     //console.log(resultsB);
     var contentWTF = resultsB.Series.Description;
     var tagWTF = resultsB.Series.Title;
     var URLWtf = resultsB.Url;
+    $(".dos").attr("src", wtfImg);
 
+    $(".dos").css("max-width", "100%");
+
+    $(".dos").css("border-radius", 50);
   //  $(".second-h").text(titleWTF);
    $(".lifeb").text(tagWTF);
     $(".second-link").click(function(){
@@ -68,12 +79,18 @@ $(window).load(function() {
     var newsTitle = resultsC.articles[0].title;
     var newsDescription = resultsC.articles[0].description;
     var newsURL = resultsC.articles[0].url;
+    var newsImg = resultsC.articles[0].urlToImage;
+
 
     $(".third-h").text(newsTitle);
+    $(".tres").attr("src", newsImg);
 
+    $(".tres").css("max-width", "100%");
+
+    $(".tres").css("border-radius", 50);
     $(".third-link").click(function(){
 
-    //  console.log(resultsC);
+      //console.log(resultsC);
       $('#popUp').show();
       $(".loader").toggleClass();
       $(".container").css("display", "visible");
@@ -88,8 +105,14 @@ $(window).load(function() {
     var gTitle = resultsD.response.results[0].webTitle;
     var gDescription = "The title says it all, doesn't it?";;
     var gURL = resultsD.response.results[0].webUrl;
+    var gImg = "images/g.jpg";
 
     $(".fourth-h").text(gTitle);
+    $(".quatro").attr("src", gImg);
+
+    $(".quatro").css("max-width", "100%");
+
+    $(".quatro").css("border-radius", 50);
     //console.log(resultsD);
 
     $(".fourth-link").click(function(){
@@ -113,8 +136,14 @@ $(window).load(function() {
     var rTitle = resultsE.data.children[0].data.title;
     var rDescription = "The title says it all, doesn't it?";;
     var rURL = "https://www.reddit.com" + resultsE.data.children[0].data.permalink;
+    var rImage = resultsE.data.children[0].data.thumbnail;
+    //console.log(rImage);
 
     $(".fifth-h").text(rTitle);
+    $(".cinco").attr("src", rImage);
+    $(".cinco").css("max-width", "100%");
+
+    $(".cinco").css("border-radius", 50);
 
     $(".fifth-link").click(function(){
 
@@ -124,6 +153,7 @@ $(window).load(function() {
       $(".container").css("display", "visible");
       $(".popped-title").text(rTitle);
       $(".popped-link").attr("href", rURL);
+
       $(".popped-description").text(rDescription);
     console.log(resultsE);
 

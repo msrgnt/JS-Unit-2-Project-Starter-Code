@@ -26,7 +26,7 @@ $(window).load(function() {
 
     $(".first-h").text(titleDigg);
     $(".lifea").text(tagDigg);
-    //console.log(results.data.feed[0].digg_score);
+    console.log(results);
     $(".uno").attr("src", imgDigg);
 
     $(".uno").css("max-width", "100%");
@@ -85,13 +85,11 @@ $(window).load(function() {
 
     var randNum = Math.floor(Math.random() * 1000);
     $(".impressions-3").text(randNum + " random number");
-
     $(".third-h").text(newsTitle);
     $(".tres").attr("src", newsImg);
-
     $(".tres").css("max-width", "100%");
-
     $(".tres").css("border-radius", 50);
+
     $(".third-link").click(function(){
 
       console.log(resultsC);
@@ -105,7 +103,7 @@ $(window).load(function() {
     });
   });
 
-  $.get("https://accesscontrolalloworiginall.herokuapp.com/https://content.guardianapis.com/search?q=atlanta%20OR%20poop%20bacon&from-date=2017-01-01&api-key=9be4a5cd-ef5e-4299-b2be-20427c6ca171", function(resultsD){
+  $.get("https://accesscontrolalloworiginall.herokuapp.com/https://content.guardianapis.com/search?q=atlantafrom-date=2017-01-01&api-key=9be4a5cd-ef5e-4299-b2be-20427c6ca171", function(resultsD){
     var randNum = Math.floor(Math.random() * 10);
     var randNumB = Math.floor(Math.random() * 1000);
 
@@ -208,15 +206,148 @@ $("li").click(function(){
   console.log("hellop");
   //something like this will append by source; bug
   $.get("https://accesscontrolalloworiginall.herokuapp.com/http://digg.com/api/news/popular.json", function(results){
-    console.log(results + "hohooo");
-    for (var i = 0; i < 5; i++) {
-      console.log("hellop");
+    var titleDigg = results.data.feed[0].content.title;
+    var contentDigg = results.data.feed[0].content.description;
+    var tagDigg = results.data.feed[0].content.tags[0].display_name;
+    var URLDigg = results.data.feed[0].content.original_url;
+    var imgDigg = results.data.feed[0].content.media.images[0].original_url;
+    var diggEng = results.data.feed[0].digg_score;
+    $(".impressions-1").text(diggEng + " diggs");
 
-      }
-    results.data.feed.forEach(function(result){
-      $(".first-h").append("<p>"+result.content.title+"</p>")
-    })
-  })
+    $(".first-h").text(titleDigg);
+    $(".lifea").text(tagDigg);
+    //console.log(results.data.feed[0].digg_score);
+    $(".uno").attr("src", imgDigg);
+
+    $(".uno").css("max-width", "100%");
+
+    $(".uno").css("border-radius", 50);
+    $(".first-link").click(function(){
+
+    //  console.log("yo");
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(titleDigg);
+      $(".popped-link").attr("href", URLDigg);
+      $(".popped-description").text(contentDigg);
+
+    });
+
+    var titleDigg1 = results.data.feed[1].content.title;
+    var contentDigg1 = results.data.feed[1].content.description;
+    var tagDigg1 = results.data.feed[1].content.tags[0].display_name;
+    var URLDigg1 = results.data.feed[1].content.original_url;
+    var imgDigg1 = results.data.feed[1].content.media.images[0].original_url;
+    var diggEng1 = results.data.feed[1].digg_score;
+    $(".impressions-2").text(diggEng1 + " diggs");
+
+    $(".second-h").text(titleDigg1);
+    $(".lifeb").text(tagDigg1);
+    //console.log(results.data.feed[0].digg_score);
+    $(".dos").attr("src", imgDigg1);
+
+    $(".dos").css("max-width", "100%");
+
+    $(".dos").css("border-radius", 50);
+    $(".second-link").click(function(){
+
+    //  console.log("yo");
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(titleDigg1);
+      $(".popped-link").attr("href", URLDigg1);
+      $(".popped-description").text(contentDigg1);
+
+    });
+    var titleDigg2 = results.data.feed[2].content.title;
+    var contentDigg2 = results.data.feed[2].content.description;
+    var tagDigg2 = results.data.feed[2].content.tags[0].display_name;
+    var URLDigg2 = results.data.feed[2].content.original_url;
+    var imgDigg2 = results.data.feed[2].content.media.images[0].original_url;
+    var diggEng2 = results.data.feed[2].digg_score;
+    $(".impressions-3").text(diggEng2 + " diggs");
+
+    $(".third-h").text(titleDigg2);
+    $(".lifec").text(tagDigg2);
+    //console.log(results.data.feed[0].digg_score);
+    $(".tres").attr("src", imgDigg2);
+
+    $(".tres").css("max-width", "100%");
+
+    $(".tres").css("border-radius", 50);
+    $(".third-link").click(function(){
+
+    //  console.log("yo");
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(titleDigg2);
+      $(".popped-link").attr("href", URLDigg2);
+      $(".popped-description").text(contentDigg2);
+
+    });
+
+    var titleDigg3 = results.data.feed[3].content.title;
+    var contentDigg3 = results.data.feed[3].content.description;
+    var tagDigg3 = results.data.feed[3].content.tags[0].display_name;
+    var URLDigg3 = results.data.feed[3].content.original_url;
+    var imgDigg3 = results.data.feed[3].content.media.images[0].original_url;
+    var diggEng3 = results.data.feed[3].digg_score;
+    $(".impressions-4").text(diggEng3 + " diggs");
+
+    $(".fourth-h").text(titleDigg3);
+    $(".lifed").text(tagDigg3);
+    //console.log(results.data.feed[0].digg_score);
+    $(".quatro").attr("src", imgDigg3);
+
+    $(".quatro").css("max-width", "100%");
+
+    $(".quatro").css("border-radius", 50);
+    $(".fourth-link").click(function(){
+
+    //  console.log("yo");
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(titleDigg3);
+      $(".popped-link").attr("href", URLDigg3);
+      $(".popped-description").text(contentDigg3);
+
+    });
+
+    var titleDigg4 = results.data.feed[4].content.title;
+    var contentDigg4 = results.data.feed[4].content.description;
+    var tagDigg4 = results.data.feed[4].content.tags[0].display_name;
+    var URLDigg4 = results.data.feed[4].content.original_url;
+    var imgDigg4 = results.data.feed[4].content.media.images[0].original_url;
+    var diggEng4 = results.data.feed[4].digg_score;
+    $(".impressions-5").text(diggEng4 + " diggs");
+
+    $(".fifth-h").text(titleDigg4);
+    $(".lifee").text(tagDigg4);
+    //console.log(results.data.feed[0].digg_score);
+    $(".cinco").attr("src", imgDigg4);
+
+    $(".cinco").css("max-width", "100%");
+
+    $(".cinco").css("border-radius", 50);
+    $(".fifth-link").click(function(){
+
+    //  console.log("yo");
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(titleDigg4);
+      $(".popped-link").attr("href", URLDigg4);
+      $(".popped-description").text(contentDigg4);
+
+    });
+  });
+
+
+
     });
 /*
 

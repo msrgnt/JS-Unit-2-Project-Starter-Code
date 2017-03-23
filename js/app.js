@@ -11,10 +11,7 @@ $(document).on({
 });
 
 $(window).load(function() {
-  console.log("loading")
-
-
-
+  //console.log("loading")
 
   //$('#popUp').show().removeClass('hidden');
 
@@ -24,10 +21,12 @@ $(window).load(function() {
     var tagDigg = results.data.feed[0].content.tags[0].display_name;
     var URLDigg = results.data.feed[0].content.original_url;
     var imgDigg = results.data.feed[0].content.media.images[0].original_url;
+    var diggEng = results.data.feed[0].digg_score;
+    $(".impressions-1").text(diggEng + " diggs");
 
     $(".first-h").text(titleDigg);
     $(".lifea").text(tagDigg);
-    console.log(results);
+    //console.log(results.data.feed[0].digg_score);
     $(".uno").attr("src", imgDigg);
 
     $(".uno").css("max-width", "100%");
@@ -35,7 +34,7 @@ $(window).load(function() {
     $(".uno").css("border-radius", 50);
     $(".first-link").click(function(){
 
-      console.log("yo");
+    //  console.log("yo");
       $('#popUp').show();
       $(".loader").toggleClass();
       $(".container").css("display", "visible");
@@ -50,8 +49,10 @@ $(window).load(function() {
     var titleWTF = resultsB.Title
     $(".second-h").text(titleWTF);
     var wtfImg = "images/wtf.png";
+    var engWtf = resultsB.CachedCommentCount;
+    $(".impressions-2").text(engWtf + " comments");
 
-    //console.log(resultsB);
+  //  console.log(resultsB.CachedCommentCount);
     var contentWTF = resultsB.Series.Description;
     var tagWTF = resultsB.Series.Title;
     var URLWtf = resultsB.Url;
@@ -80,7 +81,10 @@ $(window).load(function() {
     var newsDescription = resultsC.articles[0].description;
     var newsURL = resultsC.articles[0].url;
     var newsImg = resultsC.articles[0].urlToImage;
+    //console.log(resultsC);
 
+    var randNum = Math.floor(Math.random() * 1000);
+    $(".impressions-3").text(randNum + " random number");
 
     $(".third-h").text(newsTitle);
     $(".tres").attr("src", newsImg);
@@ -90,7 +94,7 @@ $(window).load(function() {
     $(".tres").css("border-radius", 50);
     $(".third-link").click(function(){
 
-      //console.log(resultsC);
+      console.log(resultsC);
       $('#popUp').show();
       $(".loader").toggleClass();
       $(".container").css("display", "visible");
@@ -102,10 +106,14 @@ $(window).load(function() {
   });
 
   $.get("https://accesscontrolalloworiginall.herokuapp.com/https://content.guardianapis.com/search?q=atlanta%20OR%20poop%20bacon&from-date=2017-01-01&api-key=9be4a5cd-ef5e-4299-b2be-20427c6ca171", function(resultsD){
-    var gTitle = resultsD.response.results[0].webTitle;
+    var randNum = Math.floor(Math.random() * 10);
+    var randNumB = Math.floor(Math.random() * 1000);
+
+    var gTitle = resultsD.response.results[randNum].webTitle;
     var gDescription = "The title says it all, doesn't it?";;
-    var gURL = resultsD.response.results[0].webUrl;
+    var gURL = resultsD.response.results[randNum].webUrl;
     var gImg = "images/g.jpg";
+    $(".impressions-4").text(randNumB + " random number");
 
     $(".fourth-h").text(gTitle);
     $(".quatro").attr("src", gImg);
@@ -137,7 +145,10 @@ $(window).load(function() {
     var rDescription = "The title says it all, doesn't it?";;
     var rURL = "https://www.reddit.com" + resultsE.data.children[0].data.permalink;
     var rImage = resultsE.data.children[0].data.thumbnail;
-    console.log(rImage);
+    var rEng = resultsE.data.children[0].data.ups;
+    console.log(resultsE);
+    $(".impressions-5").text(rEng + " upvotes");
+
     if (rImage === "self") {
       console.log("hooya");
       var rImage = "images/reddit.png"
@@ -193,13 +204,47 @@ $(window).load(function() {
 
 
 
+$("li").click(function(){
+  console.log("hellop");
+  //something like this will append by source; bug
+  $.get("https://accesscontrolalloworiginall.herokuapp.com/http://digg.com/api/news/popular.json", function(results){
+    console.log(results + "hohooo");
+    for (var i = 0; i < 5; i++) {
+      console.log("hellop");
 
+      }
+    results.data.feed.forEach(function(result){
+      $(".first-h").append("<p>"+result.content.title+"</p>")
+    })
+  })
+    });
+/*
 
-$(".second-link").click(function(){
-  console.log("hello");
+    $(".first-h").text(titleDigg);
+    $(".lifea").text(tagDigg);
+    console.log(results);
+    $(".uno").attr("src", imgDigg);
+
+    $(".uno").css("max-width", "100%");
+
+    $(".uno").css("border-radius", 50);
+    $(".first-link").click(function(){
+
+      console.log("yo");
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(titleDigg);
+      $(".popped-link").attr("href", URLDigg);
+      $(".popped-description").text(contentDigg);
+
+    });
+
+  });
+
 
 });
-
+*/
 $(".third-link").click(function(){
   console.log("hello");
 

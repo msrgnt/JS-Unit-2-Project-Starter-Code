@@ -6,7 +6,12 @@
 */
 
 $(document).on({
-    ajaxStart: function() { $('#popUp').show().removeClass('hidden');    },
+    ajaxStart: function() {
+      console.log("fuckfuckfuck");
+
+      $('#popUp').show().removeClass('hidden');
+      $('#popUp').show().addClass('loader');
+    },
      ajaxStop: function() { $('#popUp').hide(); }
 });
 
@@ -946,10 +951,170 @@ $("container").click(function(event){
 
 $(".closePopUp").click(function(){
 console.log('close');
+$('#popUp').addClass('.loader');
+
   $('#popUp').hide();
+
+
 });
 
-$(".logo").click(function(event){
-  event.preventDefault();
-  $("#main").toggleClass("hidden");
+$(".logo").click(function (event){
+
+
+  $.get("https://accesscontrolalloworiginall.herokuapp.com/http://digg.com/api/news/popular.json", function(results){
+    var titleDigg = results.data.feed[0].content.title;
+    var contentDigg = results.data.feed[0].content.description;
+    var tagDigg = results.data.feed[0].content.tags[0].display_name;
+    var URLDigg = results.data.feed[0].content.original_url;
+    var imgDigg = results.data.feed[0].content.media.images[0].original_url;
+    var diggEng = results.data.feed[0].digg_score;
+    $(".impressions-1").text(diggEng + " diggs");
+
+    $(".first-h").text(titleDigg);
+    $(".lifea").text(tagDigg);
+    //console.log(results);
+    $(".uno").attr("src", imgDigg);
+
+    $(".uno").css("max-width", "100%");
+
+    $(".uno").css("border-radius", 50);
+    $(".first-link").click(function(){
+
+    //  console.log("yo");
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(titleDigg);
+      $(".popped-link").attr("href", URLDigg);
+      $(".popped-description").text(contentDigg);
+
+    });
+  });
+
+  $.get("https://accesscontrolalloworiginall.herokuapp.com/http://thedailywtf.com/api/articles/random", function(resultsB){
+    var titleWTF = resultsB.Title
+    $(".second-h").text(titleWTF);
+    var wtfImg = "images/wtf.png";
+    var engWtf = resultsB.CachedCommentCount;
+    $(".impressions-2").text(engWtf + " comments");
+
+  //  console.log(resultsB.CachedCommentCount);
+    var contentWTF = resultsB.Series.Description;
+    var tagWTF = resultsB.Series.Title;
+    var URLWtf = resultsB.Url;
+    $(".dos").attr("src", wtfImg);
+
+    $(".dos").css("max-width", "100%");
+
+    $(".dos").css("border-radius", 50);
+  //  $(".second-h").text(titleWTF);
+   $(".lifeb").text(tagWTF);
+    $(".second-link").click(function(){
+
+      console.log("yo");
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(titleWTF);
+      $(".popped-link").attr("href", URLWtf);
+      $(".popped-description").text(contentWTF);
+
+    });
+  });
+
+  $.get("https://accesscontrolalloworiginall.herokuapp.com/https://newsapi.org/v1/articles?source=techcrunch&apiKey=a95641f41d1343b6b44c9c7f0e8aef2e", function(resultsC){
+    var newsTitle = resultsC.articles[0].title;
+    var newsDescription = resultsC.articles[0].description;
+    var newsURL = resultsC.articles[0].url;
+    var newsImg = resultsC.articles[0].urlToImage;
+    //console.log(resultsC);
+
+    var randNum = Math.floor(Math.random() * 1000);
+    $(".impressions-3").text(randNum + " random number");
+    $(".third-h").text(newsTitle);
+    $(".tres").attr("src", newsImg);
+    $(".tres").css("max-width", "100%");
+    $(".tres").css("border-radius", 50);
+
+    $(".third-link").click(function(){
+
+      console.log(resultsC);
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(newsTitle);
+      $(".popped-link").attr("href", newsURL);
+      $(".popped-description").text(newsDescription);
+
+    });
+  });
+
+  $.get("https://accesscontrolalloworiginall.herokuapp.com/https://content.guardianapis.com/search?q=atlantafrom-date=2017-01-01&api-key=9be4a5cd-ef5e-4299-b2be-20427c6ca171", function(resultsD){
+    var randNum = Math.floor(Math.random() * 10);
+    var randNumB = Math.floor(Math.random() * 1000);
+
+    var gTitle = resultsD.response.results[randNum].webTitle;
+    var gDescription = "The title says it all, doesn't it?";;
+    var gURL = resultsD.response.results[randNum].webUrl;
+    var gImg = "images/g.jpg";
+    $(".impressions-4").text(randNumB + " random number");
+
+    $(".fourth-h").text(gTitle);
+    $(".quatro").attr("src", gImg);
+
+    $(".quatro").css("max-width", "100%");
+
+    $(".quatro").css("border-radius", 50);
+    //console.log(resultsD);
+
+    $(".fourth-link").click(function(){
+
+      //console.log(resultsD);
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(gTitle);
+      $(".popped-link").attr("href", gURL);
+      $(".popped-description").text(gDescription);
+
+
+
+    });
+  });
+
+  $.get("https://accesscontrolalloworiginall.herokuapp.com/http://www.reddit.com/r/all.json", function(resultsE){
+    //$(".fourth-h").text(resultsD.response.results[0].webTitle);
+
+    var rTitle = resultsE.data.children[0].data.title;
+    var rDescription = "The title says it all, doesn't it?";;
+    var rURL = "https://www.reddit.com" + resultsE.data.children[0].data.permalink;
+    var rImage = resultsE.data.children[0].data.thumbnail;
+    var rEng = resultsE.data.children[0].data.ups;
+    console.log(resultsE);
+    $(".impressions-5").text(rEng + " upvotes");
+
+    if (rImage === "self") {
+      console.log("hooya");
+      var rImage = "images/reddit.png"
+    }
+
+    $(".fifth-h").text(rTitle);
+    $(".cinco").attr("src", rImage);
+    $(".cinco").css("max-width", "100%");
+
+    $(".cinco").css("border-radius", 50);
+
+    $(".fifth-link").click(function(){
+
+      //console.log(resultsD);
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(rTitle);
+      $(".popped-link").attr("href", rURL);
+
+      $(".popped-description").text(rDescription);
+    console.log(resultsE);
+});
+});
 });

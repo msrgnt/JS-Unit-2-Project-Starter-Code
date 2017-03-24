@@ -202,9 +202,7 @@ $(window).load(function() {
 
 
 
-$("li").click(function(){
-  console.log("hellop");
-  //something like this will append by source; bug
+$(".li-a").click(function(){
   $.get("https://accesscontrolalloworiginall.herokuapp.com/http://digg.com/api/news/popular.json", function(results){
     var titleDigg = results.data.feed[0].content.title;
     var contentDigg = results.data.feed[0].content.description;
@@ -213,25 +211,19 @@ $("li").click(function(){
     var imgDigg = results.data.feed[0].content.media.images[0].original_url;
     var diggEng = results.data.feed[0].digg_score;
     $(".impressions-1").text(diggEng + " diggs");
-
     $(".first-h").text(titleDigg);
     $(".lifea").text(tagDigg);
-    //console.log(results.data.feed[0].digg_score);
     $(".uno").attr("src", imgDigg);
-
     $(".uno").css("max-width", "100%");
-
     $(".uno").css("border-radius", 50);
-    $(".first-link").click(function(){
 
-    //  console.log("yo");
+    $(".first-link").click(function(){
       $('#popUp').show();
       $(".loader").toggleClass();
       $(".container").css("display", "visible");
       $(".popped-title").text(titleDigg);
       $(".popped-link").attr("href", URLDigg);
       $(".popped-description").text(contentDigg);
-
     });
 
     var titleDigg1 = results.data.feed[1].content.title;
@@ -241,26 +233,21 @@ $("li").click(function(){
     var imgDigg1 = results.data.feed[1].content.media.images[0].original_url;
     var diggEng1 = results.data.feed[1].digg_score;
     $(".impressions-2").text(diggEng1 + " diggs");
-
     $(".second-h").text(titleDigg1);
     $(".lifeb").text(tagDigg1);
-    //console.log(results.data.feed[0].digg_score);
     $(".dos").attr("src", imgDigg1);
-
     $(".dos").css("max-width", "100%");
-
     $(".dos").css("border-radius", 50);
-    $(".second-link").click(function(){
 
-    //  console.log("yo");
+    $(".second-link").click(function(){
       $('#popUp').show();
       $(".loader").toggleClass();
       $(".container").css("display", "visible");
       $(".popped-title").text(titleDigg1);
       $(".popped-link").attr("href", URLDigg1);
       $(".popped-description").text(contentDigg1);
-
     });
+
     var titleDigg2 = results.data.feed[2].content.title;
     var contentDigg2 = results.data.feed[2].content.description;
     var tagDigg2 = results.data.feed[2].content.tags[0].display_name;
@@ -268,25 +255,19 @@ $("li").click(function(){
     var imgDigg2 = results.data.feed[2].content.media.images[0].original_url;
     var diggEng2 = results.data.feed[2].digg_score;
     $(".impressions-3").text(diggEng2 + " diggs");
-
     $(".third-h").text(titleDigg2);
     $(".lifec").text(tagDigg2);
-    //console.log(results.data.feed[0].digg_score);
     $(".tres").attr("src", imgDigg2);
-
     $(".tres").css("max-width", "100%");
-
     $(".tres").css("border-radius", 50);
-    $(".third-link").click(function(){
 
-    //  console.log("yo");
+    $(".third-link").click(function(){
       $('#popUp').show();
       $(".loader").toggleClass();
       $(".container").css("display", "visible");
       $(".popped-title").text(titleDigg2);
       $(".popped-link").attr("href", URLDigg2);
       $(".popped-description").text(contentDigg2);
-
     });
 
     var titleDigg3 = results.data.feed[3].content.title;
@@ -296,18 +277,13 @@ $("li").click(function(){
     var imgDigg3 = results.data.feed[3].content.media.images[0].original_url;
     var diggEng3 = results.data.feed[3].digg_score;
     $(".impressions-4").text(diggEng3 + " diggs");
-
     $(".fourth-h").text(titleDigg3);
     $(".lifed").text(tagDigg3);
-    //console.log(results.data.feed[0].digg_score);
     $(".quatro").attr("src", imgDigg3);
-
     $(".quatro").css("max-width", "100%");
-
     $(".quatro").css("border-radius", 50);
-    $(".fourth-link").click(function(){
 
-    //  console.log("yo");
+    $(".fourth-link").click(function(){
       $('#popUp').show();
       $(".loader").toggleClass();
       $(".container").css("display", "visible");
@@ -324,29 +300,21 @@ $("li").click(function(){
     var imgDigg4 = results.data.feed[4].content.media.images[0].original_url;
     var diggEng4 = results.data.feed[4].digg_score;
     $(".impressions-5").text(diggEng4 + " diggs");
-
     $(".fifth-h").text(titleDigg4);
     $(".lifee").text(tagDigg4);
-    //console.log(results.data.feed[0].digg_score);
     $(".cinco").attr("src", imgDigg4);
-
     $(".cinco").css("max-width", "100%");
-
     $(".cinco").css("border-radius", 50);
-    $(".fifth-link").click(function(){
 
-    //  console.log("yo");
+    $(".fifth-link").click(function(){
       $('#popUp').show();
       $(".loader").toggleClass();
       $(".container").css("display", "visible");
       $(".popped-title").text(titleDigg4);
       $(".popped-link").attr("href", URLDigg4);
       $(".popped-description").text(contentDigg4);
-
     });
   });
-
-
 
     });
 /*
@@ -376,14 +344,281 @@ $("li").click(function(){
 
 });
 */
-$(".third-link").click(function(){
-  console.log("hello");
+$(".li-b").click(function(){
+  $.get("https://accesscontrolalloworiginall.herokuapp.com/http://thedailywtf.com/api/articles/recent", function(resultsB){
+    console.log(resultsB[2]);
 
+    var titleWTF = resultsB[0].Title
+    $(".first-h").text(titleWTF);
+    var wtfImg = "images/wtf.png";
+    var engWtf = resultsB[0].CachedCommentCount;
+    $(".impressions-1").text(engWtf + " comments");
+
+  //  console.log(resultsB.CachedCommentCount);
+    var contentWTF = resultsB[0].Series.Description;
+    var tagWTF = resultsB[0].Series.Title;
+    var URLWtf = resultsB[0].Url;
+    $(".uno").attr("src", wtfImg);
+    $(".uno").css("max-width", "100%");
+    $(".uno").css("border-radius", 50);
+  //  $(".second-h").text(titleWTF);
+   $(".lifea").text(tagWTF);
+    $(".first-link").click(function(){
+
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(titleWTF);
+      $(".popped-link").attr("href", URLWtf);
+      $(".popped-description").text(contentWTF);
+
+    });
+
+    var titleWTF1 = resultsB[1].Title
+    $(".second-h").text(titleWTF1);
+    var wtfImg1 = "images/wtf.png";
+    var engWtf1 = resultsB[1].CachedCommentCount;
+    $(".impressions-2").text(engWtf1 + " comments");
+
+    //  console.log(resultsB.CachedCommentCount);
+    var contentWTF1 = resultsB[1].Series.Description;
+    var tagWTF1 = resultsB[1].Series.Title;
+    var URLWtf1 = resultsB[1].Url;
+    $(".dos").attr("src", wtfImg);
+
+    $(".dos").css("max-width", "100%");
+
+    $(".dos").css("border-radius", 50);
+    //  $(".second-h").text(titleWTF);
+    $(".lifeb").text(tagWTF1);
+    $(".second-link").click(function(){
+
+      console.log("yo");
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(titleWTF1);
+      $(".popped-link").attr("href", URLWtf1);
+      $(".popped-description").text(contentWTF1);
+
+    });
+
+  var titleWTF2 = resultsB[2].Title;
+  $(".third-h").text(titleWTF2);
+  var wtfImg2 = "images/wtf.png";
+  var engWtf2 = resultsB[2].CachedCommentCount;
+  $(".impressions-3").text(engWtf2 + " comments");
+
+  //  console.log(resultsB.CachedCommentCount);
+  var contentWTF2 = resultsB[2].Series.Description;
+  var tagWTF2 = resultsB[2].Series.Title;
+  var URLWtf2 = resultsB[2].Url;
+  $(".tres").attr("src", wtfImg2);
+
+  $(".tres").css("max-width", "100%");
+
+  $(".tres").css("border-radius", 50);
+  //  $(".second-h").text(titleWTF);
+  $(".lifec").text(tagWTF2);
+  $(".third-link").click(function(){
+
+    console.log("yo");
+    $('#popUp').show();
+    $(".loader").toggleClass();
+    $(".container").css("display", "visible");
+    $(".popped-title").text(titleWTF2);
+    $(".popped-link").attr("href", URLWtf2);
+    $(".popped-description").text(contentWTF2);
+
+  });
+
+  var titleWTF3 = resultsB[3].Title;
+  $(".fourth-h").text(titleWTF3);
+  var wtfImg3 = "images/wtf.png";
+  var engWtf3 = resultsB[3].CachedCommentCount;
+  $(".impressions-4").text(engWtf3 + " comments");
+
+  //  console.log(resultsB.CachedCommentCount);
+  var contentWTF3 = resultsB[3].Series.Description;
+  var tagWTF3 = resultsB[3].Series.Title;
+  var URLWtf3 = resultsB[3].Url;
+  $(".quatro").attr("src", wtfImg3);
+
+  $(".quatro").css("max-width", "100%");
+
+  $(".quatro").css("border-radius", 50);
+  //  $(".second-h").text(titleWTF);
+  $(".lifed").text(tagWTF3);
+  $(".fourth-link").click(function(){
+
+    console.log("yo");
+    $('#popUp').show();
+    $(".loader").toggleClass();
+    $(".container").css("display", "visible");
+    $(".popped-title").text(titleWTF3);
+    $(".popped-link").attr("href", URLWtf3);
+    $(".popped-description").text(contentWTF3);
+
+  });
+
+  var titleWTF4 = resultsB[4].Title;
+  $(".fourth-h").text(titleWTF4);
+  var wtfImg4 = "images/wtf.png";
+  var engWtf4 = resultsB[4].CachedCommentCount;
+  $(".impressions-5").text(engWtf4 + " comments");
+
+  //  console.log(resultsB.CachedCommentCount);
+  var contentWTF4 = resultsB[4].Series.Description;
+  var tagWTF4 = resultsB[4].Series.Title;
+  var URLWtf4 = resultsB[4].Url;
+  $(".cinco").attr("src", wtfImg4);
+
+  $(".cinco").css("max-width", "100%");
+
+  $(".cinco").css("border-radius", 50);
+  //  $(".second-h").text(titleWTF);
+  $(".lifee").text(tagWTF4);
+  $(".fifth-link").click(function(){
+
+    console.log("yo");
+    $('#popUp').show();
+    $(".loader").toggleClass();
+    $(".container").css("display", "visible");
+    $(".popped-title").text(titleWTF4);
+    $(".popped-link").attr("href", URLWtf4);
+    $(".popped-description").text(contentWTF4);
+
+  });
+});
 });
 
-$(".fourth-link").click(function(){
+$(".li-c").click(function(){
 
-console.log("hello");
+  $.get("https://accesscontrolalloworiginall.herokuapp.com/https://newsapi.org/v1/articles?source=techcrunch&apiKey=a95641f41d1343b6b44c9c7f0e8aef2e", function(resultsC){
+    var newsTitle = resultsC.articles[0].title;
+    var newsDescription = resultsC.articles[0].description;
+    var newsURL = resultsC.articles[0].url;
+    var newsImg = resultsC.articles[0].urlToImage;
+    //console.log(resultsC);
+
+    var randNum = Math.floor(Math.random() * 1000);
+    $(".impressions-1").text(randNum + " random number");
+    $(".first-h").text(newsTitle);
+    $(".uno").attr("src", newsImg);
+    $(".uno").css("max-width", "100%");
+    $(".uno").css("border-radius", 50);
+
+    $(".first-link").click(function(){
+
+      console.log(resultsC);
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(newsTitle);
+      $(".popped-link").attr("href", newsURL);
+      $(".popped-description").text(newsDescription);
+
+    });
+
+    var newsTitle1 = resultsC.articles[1].title;
+    var newsDescription1 = resultsC.articles[1].description;
+    var newsURL1 = resultsC.articles[1].url;
+    var newsImg1 = resultsC.articles[1].urlToImage;
+    //console.log(resultsC);
+
+    var randNum1 = Math.floor(Math.random() * 1000);
+    $(".impressions-2").text(randNum1 + " random number");
+    $(".second-h").text(newsTitle1);
+    $(".dos").attr("src", newsImg1);
+    $(".dos").css("max-width", "100%");
+    $(".dos").css("border-radius", 50);
+
+    $(".second-link").click(function(){
+
+      console.log(resultsC);
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(newsTitle1);
+      $(".popped-link").attr("href", newsURL1);
+      $(".popped-description").text(newsDescription1);
+
+    });
+
+    var newsTitle2 = resultsC.articles[2].title;
+    var newsDescription2 = resultsC.articles[2].description;
+    var newsURL2 = resultsC.articles[2].url;
+    var newsImg2 = resultsC.articles[2].urlToImage;
+    //console.log(resultsC);
+
+    var randNum2 = Math.floor(Math.random() * 1000);
+    $(".impressions-3").text(randNum2 + " random number");
+    $(".third-h").text(newsTitle2);
+    $(".tres").attr("src", newsImg2);
+    $(".tres").css("max-width", "100%");
+    $(".tres").css("border-radius", 50);
+
+    $(".third-link").click(function(){
+
+      console.log(resultsC);
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(newsTitle2);
+      $(".popped-link").attr("href", newsURL2);
+      $(".popped-description").text(newsDescription2);
+
+    });
+
+    var newsTitle3 = resultsC.articles[3].title;
+    var newsDescription3 = resultsC.articles[3].description;
+    var newsURL3 = resultsC.articles[3].url;
+    var newsImg3 = resultsC.articles[3].urlToImage;
+    //console.log(resultsC);
+
+    var randNum3 = Math.floor(Math.random() * 1000);
+    $(".impressions-4").text(randNum3 + " random number");
+    $(".fourth-h").text(newsTitle3);
+    $(".quatro").attr("src", newsImg3);
+    $(".quatro").css("max-width", "100%");
+    $(".quatro").css("border-radius", 50);
+
+    $(".fourth-link").click(function(){
+
+      console.log(resultsC);
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(newsTitle3);
+      $(".popped-link").attr("href", newsURL3);
+      $(".popped-description").text(newsDescription3);
+    });
+
+    var newsTitle4 = resultsC.articles[4].title;
+    var newsDescription4 = resultsC.articles[4].description;
+    var newsURL4 = resultsC.articles[4].url;
+    var newsImg4 = resultsC.articles[4].urlToImage;
+    //console.log(resultsC);
+
+    var randNum4 = Math.floor(Math.random() * 1000);
+    $(".impressions-5").text(randNum4 + " random number");
+    $(".fifth-h").text(newsTitle4);
+    $(".cinco").attr("src", newsImg4);
+    $(".cinco").css("max-width", "100%");
+    $(".cinco").css("border-radius", 50);
+
+    $(".fifth-link").click(function(){
+
+      console.log(resultsC);
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(newsTitle4);
+      $(".popped-link").attr("href", newsURL4);
+      $(".popped-description").text(newsDescription4);
+
+    });
+  });
 });
 
 $(".fifth-link").click(function(){

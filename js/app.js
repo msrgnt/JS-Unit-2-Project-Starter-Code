@@ -315,8 +315,7 @@ $(".li-a").click(function(){
       $(".popped-description").text(contentDigg4);
     });
   });
-
-    });
+});
 /*
 
     $(".first-h").text(titleDigg);
@@ -487,7 +486,6 @@ $(".li-b").click(function(){
     $(".popped-title").text(titleWTF4);
     $(".popped-link").attr("href", URLWtf4);
     $(".popped-description").text(contentWTF4);
-
   });
 });
 });
@@ -621,10 +619,150 @@ $(".li-c").click(function(){
   });
 });
 
-$(".fifth-link").click(function(){
-  console.log("hello");
-});
+$(".li-d").click(function(){
+  $.get("https://accesscontrolalloworiginall.herokuapp.com/https://content.guardianapis.com/search?q=atlantafrom-date=2017-01-01&api-key=9be4a5cd-ef5e-4299-b2be-20427c6ca171", function(resultsD){
+    var randNum = Math.floor(Math.random() * 10);
+    var randNumB = Math.floor(Math.random() * 1000);
 
+    var gTitle = resultsD.response.results[0].webTitle;
+    var gDescription = "The title says it all, doesn't it?";;
+    var gURL = resultsD.response.results[0].webUrl;
+    var gImg = "images/g.jpg";
+    $(".impressions-1").text(randNumB + " random number");
+
+    $(".first-h").text(gTitle);
+    $(".uno").attr("src", gImg);
+
+    $(".uno").css("max-width", "100%");
+
+    $(".uno").css("border-radius", 50);
+    //console.log(resultsD);
+
+    $(".first-link").click(function(){
+
+      //console.log(resultsD);
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(gTitle);
+      $(".popped-link").attr("href", gURL);
+      $(".popped-description").text(gDescription);
+
+    });
+
+    var randNum = Math.floor(Math.random() * 10);
+    var randNumC = Math.floor(Math.random() * 1000);
+
+    var gTitle1 = resultsD.response.results[1].webTitle;
+    var gDescription1 = "The title says it all, doesn't it?";;
+    var gURL1 = resultsD.response.results[1].webUrl;
+    var gImg1 = "images/g.jpg";
+    $(".impressions-2").text(randNumC + " random number");
+
+    $(".second-h").text(gTitle1);
+    $(".dos").attr("src", gImg1);
+
+    $(".dos").css("max-width", "100%");
+
+    $(".dos").css("border-radius", 50);
+    //console.log(resultsD);
+
+    $(".second-link").click(function(){
+
+      //console.log(resultsD);
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(gTitle1);
+      $(".popped-link").attr("href", gURL1);
+      $(".popped-description").text(gDescription1);
+
+    });
+    var randNumD = Math.floor(Math.random() * 1000);
+
+    var gTitle2 = resultsD.response.results[2].webTitle;
+    var gDescription2 = "The title says it all, doesn't it?";;
+    var gURL2 = resultsD.response.results[2].webUrl;
+    var gImg2 = "images/g.jpg";
+    $(".impressions-3").text(randNumD + " random number");
+
+    $(".third-h").text(gTitle2);
+    $(".tres").attr("src", gImg2);
+
+    $(".tres").css("max-width", "100%");
+
+    $(".tres").css("border-radius", 50);
+    //console.log(resultsD);
+
+    $(".third-link").click(function(){
+
+      //console.log(resultsD);
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(gTitle2);
+      $(".popped-link").attr("href", gURL2);
+      $(".popped-description").text(gDescription2);
+
+    });
+
+    var randNumE = Math.floor(Math.random() * 1000);
+
+    var gTitle3 = resultsD.response.results[3].webTitle;
+    var gDescription3 = "The title says it all, doesn't it?";;
+    var gURL3 = resultsD.response.results[3].webUrl;
+    var gImg3 = "images/g.jpg";
+    $(".impressions-4").text(randNumE + " random number");
+
+    $(".fourth-h").text(gTitle3);
+    $(".quatro").attr("src", gImg3);
+
+    $(".quatro").css("max-width", "100%");
+
+    $(".quatro").css("border-radius", 50);
+    //console.log(resultsD);
+
+    $(".fourth-link").click(function(){
+
+      //console.log(resultsD);
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(gTitle3);
+      $(".popped-link").attr("href", gURL3);
+      $(".popped-description").text(gDescription3);
+
+    });
+
+    var randNumF = Math.floor(Math.random() * 1000);
+
+    var gTitle4 = resultsD.response.results[4].webTitle;
+    var gDescription4 = "The title says it all, doesn't it?";;
+    var gURL4 = resultsD.response.results[4].webUrl;
+    var gImg4 = "images/g.jpg";
+    $(".impressions-5").text(randNumF + " random number");
+
+    $(".fifth-h").text(gTitle4);
+    $(".cinco").attr("src", gImg4);
+
+    $(".cinco").css("max-width", "100%");
+
+    $(".cinco").css("border-radius", 50);
+    //console.log(resultsD);
+
+    $(".fifth-link").click(function(){
+
+      //console.log(resultsD);
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(gTitle4);
+      $(".popped-link").attr("href", gURL4);
+      $(".popped-description").text(gDescription4);
+
+    });
+  });
+});
 //9be4a5cd-ef5e-4299-b2be-20427c6ca171
 
 //a95641f41d1343b6b44c9c7f0e8aef2e

@@ -26,7 +26,7 @@ $(window).load(function() {
 
     $(".first-h").text(titleDigg);
     $(".lifea").text(tagDigg);
-    console.log(results);
+    //console.log(results);
     $(".uno").attr("src", imgDigg);
 
     $(".uno").css("max-width", "100%");
@@ -766,6 +766,170 @@ $(".li-d").click(function(){
 //9be4a5cd-ef5e-4299-b2be-20427c6ca171
 
 //a95641f41d1343b6b44c9c7f0e8aef2e
+$(".li-e").click(function(){
+
+$.get("https://accesscontrolalloworiginall.herokuapp.com/http://www.reddit.com/r/all.json", function(resultsE){
+
+
+var rTitle = resultsE.data.children[0].data.title;
+var rDescription = "The title says it all, doesn't it?";;
+var rURL = "https://www.reddit.com" + resultsE.data.children[0].data.permalink;
+var rImage = resultsE.data.children[0].data.thumbnail;
+var rEng = resultsE.data.children[0].data.ups;
+console.log(resultsE);
+$(".impressions-1").text(rEng + " upvotes");
+
+if (rImage === "self") {
+  console.log("hooya");
+  var rImage = "images/reddit.png"
+}
+
+$(".first-h").text(rTitle);
+$(".uno").attr("src", rImage);
+$(".uno").css("max-width", "100%");
+
+$(".uno").css("border-radius", 50);
+
+$(".first-link").click(function(){
+
+  //console.log(resultsD);
+  $('#popUp').show();
+  $(".loader").toggleClass();
+  $(".container").css("display", "visible");
+  $(".popped-title").text(rTitle);
+  $(".popped-link").attr("href", rURL);
+  $(".popped-description").text(rDescription);
+});
+
+  var rTitle1 = resultsE.data.children[1].data.title;
+  var rDescription1 = "The title says it all, doesn't it?";;
+  var rURL1 = "https://www.reddit.com" + resultsE.data.children[1].data.permalink;
+  var rImage1 = resultsE.data.children[1].data.thumbnail;
+  var rEng1 = resultsE.data.children[1].data.ups;
+  console.log("poop" + resultsE.data.children);
+  $(".impressions-2").text(rEng1 + " upvotes");
+
+  if (rImage1 === "self") {
+    //console.log("hooya");
+    var rImage1 = "images/reddit.png"
+  }
+
+  $(".second-h").text(rTitle1);
+  $(".dos").attr("src", rImage1);
+  $(".dos").css("max-width", "100%");
+
+  $(".dos").css("border-radius", 50);
+
+  $(".second-link").click(function(){
+
+    //console.log(resultsD);
+    $('#popUp').show();
+    $(".loader").toggleClass();
+    $(".container").css("display", "visible");
+    $(".popped-title").text(rTitle1);
+    $(".popped-link").attr("href", rURL1);
+
+    $(".popped-description").text(rDescription1);
+    });
+
+    var rTitle2 = resultsE.data.children[2].data.title;
+    var rDescription2 = "The title says it all, doesn't it?";;
+    var rURL2 = "https://www.reddit.com" + resultsE.data.children[2].data.permalink;
+    var rImage2 = resultsE.data.children[2].data.thumbnail;
+    var rEng2 = resultsE.data.children[2].data.ups;
+    console.log("poop" + resultsE.data.children);
+    $(".impressions-3").text(rEng2 + " upvotes");
+
+    if (rImage2 === "self") {
+      //console.log("hooya");
+      var rImage2 = "images/reddit.png"
+    }
+
+    $(".third-h").text(rTitle2);
+    $(".tres").attr("src", rImage2);
+    $(".tres").css("max-width", "100%");
+
+    $(".tres").css("border-radius", 50);
+
+    $(".third-link").click(function(){
+
+      //console.log(resultsD);
+      $('#popUp').show();
+      $(".loader").toggleClass();
+      $(".container").css("display", "visible");
+      $(".popped-title").text(rTitle2);
+      $(".popped-link").attr("href", rURL2);
+
+      $(".popped-description").text(rDescription2);
+
+      });
+      var rTitle3 = resultsE.data.children[3].data.title;
+      var rDescription3 = "The title says it all, doesn't it?";;
+      var rURL3 = "https://www.reddit.com" + resultsE.data.children[3].data.permalink;
+      var rImage3 = resultsE.data.children[3].data.thumbnail;
+      var rEng3 = resultsE.data.children[3].data.ups;
+      console.log("poop" + resultsE.data.children);
+      $(".impressions-4").text(rEng3 + " upvotes");
+
+      if (rImage3 === "self") {
+        //console.log("hooya");
+        var rImage3 = "images/reddit.png"
+      }
+
+      $(".fourth-h").text(rTitle3);
+      $(".quatro").attr("src", rImage3);
+      $(".quatro").css("max-width", "100%");
+
+      $(".quatro").css("border-radius", 50);
+
+      $(".fourth-link").click(function(){
+
+        //console.log(resultsD);
+        $('#popUp').show();
+        $(".loader").toggleClass();
+        $(".container").css("display", "visible");
+        $(".popped-title").text(rTitle3);
+        $(".popped-link").attr("href", rURL3);
+
+        $(".popped-description").text(rDescription3);
+
+        });
+
+        var rTitle4 = resultsE.data.children[4].data.title;
+        var rDescription4 = "The title says it all, doesn't it?";;
+        var rURL4 = "https://www.reddit.com" + resultsE.data.children[4].data.permalink;
+        var rImage4 = resultsE.data.children[4].data.thumbnail;
+        var rEng4 = resultsE.data.children[4].data.ups;
+        console.log("poop" + resultsE.data.children);
+        $(".impressions-5").text(rEng4 + " upvotes");
+
+        if (rImage4 === "self") {
+          //console.log("hooya");
+          var rImage4 = "images/reddit.png"
+        }
+
+        $(".fifth-h").text(rTitle4);
+        $(".cinco").attr("src", rImage4);
+        $(".cinco").css("max-width", "100%");
+
+        $(".cinco").css("border-radius", 50);
+
+        $(".fifth-link").click(function(){
+
+          //console.log(resultsD);
+          $('#popUp').show();
+          $(".loader").toggleClass();
+          $(".container").css("display", "visible");
+          $(".popped-title").text(rTitle4);
+          $(".popped-link").attr("href", rURL4);
+
+          $(".popped-description").text(rDescription4);
+
+          });
+
+  });
+});
+
 
 $("#search").click(function(event){
   event.preventDefault();

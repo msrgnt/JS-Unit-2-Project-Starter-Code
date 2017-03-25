@@ -27,7 +27,8 @@ $(window).load(function() {
     var URLDigg = results.data.feed[0].content.original_url;
     var imgDigg = results.data.feed[0].content.media.images[0].original_url;
     var diggEng = results.data.feed[0].digg_score;
-    $(".impressions-1").text(diggEng + " diggs");
+    $(".impressions-1").text(diggEng);
+
 
     $(".first-h").text(titleDigg);
     $(".lifea").text(tagDigg);
@@ -55,8 +56,7 @@ $(window).load(function() {
     $(".second-h").text(titleWTF);
     var wtfImg = "images/wtf.png";
     var engWtf = resultsB.CachedCommentCount;
-    $(".impressions-2").text(engWtf + " comments");
-
+    $(".impressions-2").text(engWtf);
   //  console.log(resultsB.CachedCommentCount);
     var contentWTF = resultsB.Series.Description;
     var tagWTF = resultsB.Series.Title;
@@ -89,7 +89,7 @@ $(window).load(function() {
     //console.log(resultsC);
 
     var randNum = Math.floor(Math.random() * 1000);
-    $(".impressions-3").text(randNum + " random number");
+    $(".impressions-3").text(randNum);
     $(".third-h").text(newsTitle);
     $(".tres").attr("src", newsImg);
     $(".tres").css("max-width", "100%");
@@ -116,7 +116,7 @@ $(window).load(function() {
     var gDescription = "The title says it all, doesn't it?";;
     var gURL = resultsD.response.results[randNum].webUrl;
     var gImg = "images/g.jpg";
-    $(".impressions-4").text(randNumB + " random number");
+    $(".impressions-4").text(randNumB);
 
     $(".fourth-h").text(gTitle);
     $(".quatro").attr("src", gImg);
@@ -150,7 +150,7 @@ $(window).load(function() {
     var rImage = resultsE.data.children[0].data.thumbnail;
     var rEng = resultsE.data.children[0].data.ups;
     console.log(resultsE);
-    $(".impressions-5").text(rEng + " upvotes");
+    $(".impressions-5").text(rEng);
 
     if (rImage === "self") {
       console.log("hooya");
@@ -215,7 +215,7 @@ $(".li-a").click(function(){
     var URLDigg = results.data.feed[0].content.original_url;
     var imgDigg = results.data.feed[0].content.media.images[0].original_url;
     var diggEng = results.data.feed[0].digg_score;
-    $(".impressions-1").text(diggEng + " diggs");
+    $(".impressions-1").text(diggEng);
     $(".first-h").text(titleDigg);
     $(".lifea").text(tagDigg);
     $(".uno").attr("src", imgDigg);
@@ -237,7 +237,7 @@ $(".li-a").click(function(){
     var URLDigg1 = results.data.feed[1].content.original_url;
     var imgDigg1 = results.data.feed[1].content.media.images[0].original_url;
     var diggEng1 = results.data.feed[1].digg_score;
-    $(".impressions-2").text(diggEng1 + " diggs");
+    $(".impressions-2").text(diggEng1);
     $(".second-h").text(titleDigg1);
     $(".lifeb").text(tagDigg1);
     $(".dos").attr("src", imgDigg1);
@@ -259,7 +259,7 @@ $(".li-a").click(function(){
     var URLDigg2 = results.data.feed[2].content.original_url;
     var imgDigg2 = results.data.feed[2].content.media.images[0].original_url;
     var diggEng2 = results.data.feed[2].digg_score;
-    $(".impressions-3").text(diggEng2 + " diggs");
+    $(".impressions-3").text(diggEng2);
     $(".third-h").text(titleDigg2);
     $(".lifec").text(tagDigg2);
     $(".tres").attr("src", imgDigg2);
@@ -281,7 +281,7 @@ $(".li-a").click(function(){
     var URLDigg3 = results.data.feed[3].content.original_url;
     var imgDigg3 = results.data.feed[3].content.media.images[0].original_url;
     var diggEng3 = results.data.feed[3].digg_score;
-    $(".impressions-4").text(diggEng3 + " diggs");
+    $(".impressions-4").text(diggEng3);
     $(".fourth-h").text(titleDigg3);
     $(".lifed").text(tagDigg3);
     $(".quatro").attr("src", imgDigg3);
@@ -304,7 +304,7 @@ $(".li-a").click(function(){
     var URLDigg4 = results.data.feed[4].content.original_url;
     var imgDigg4 = results.data.feed[4].content.media.images[0].original_url;
     var diggEng4 = results.data.feed[4].digg_score;
-    $(".impressions-5").text(diggEng4 + " diggs");
+    $(".impressions-5").text(diggEng4);
     $(".fifth-h").text(titleDigg4);
     $(".lifee").text(tagDigg4);
     $(".cinco").attr("src", imgDigg4);
@@ -356,7 +356,7 @@ $(".li-b").click(function(){
     $(".first-h").text(titleWTF);
     var wtfImg = "images/wtf.png";
     var engWtf = resultsB[0].CachedCommentCount;
-    $(".impressions-1").text(engWtf + " comments");
+    $(".impressions-1").text(engWtf);
 
   //  console.log(resultsB.CachedCommentCount);
     var contentWTF = resultsB[0].Series.Description;
@@ -382,7 +382,7 @@ $(".li-b").click(function(){
     $(".second-h").text(titleWTF1);
     var wtfImg1 = "images/wtf.png";
     var engWtf1 = resultsB[1].CachedCommentCount;
-    $(".impressions-2").text(engWtf1 + " comments");
+    $(".impressions-2").text(engWtf1);
 
     //  console.log(resultsB.CachedCommentCount);
     var contentWTF1 = resultsB[1].Series.Description;
@@ -411,7 +411,7 @@ $(".li-b").click(function(){
   $(".third-h").text(titleWTF2);
   var wtfImg2 = "images/wtf.png";
   var engWtf2 = resultsB[2].CachedCommentCount;
-  $(".impressions-3").text(engWtf2 + " comments");
+  $(".impressions-3").text(engWtf2);
 
   //  console.log(resultsB.CachedCommentCount);
   var contentWTF2 = resultsB[2].Series.Description;
@@ -440,7 +440,7 @@ $(".li-b").click(function(){
   $(".fourth-h").text(titleWTF3);
   var wtfImg3 = "images/wtf.png";
   var engWtf3 = resultsB[3].CachedCommentCount;
-  $(".impressions-4").text(engWtf3 + " comments");
+  $(".impressions-4").text(engWtf3);
 
   //  console.log(resultsB.CachedCommentCount);
   var contentWTF3 = resultsB[3].Series.Description;
@@ -469,7 +469,7 @@ $(".li-b").click(function(){
   $(".fourth-h").text(titleWTF4);
   var wtfImg4 = "images/wtf.png";
   var engWtf4 = resultsB[4].CachedCommentCount;
-  $(".impressions-5").text(engWtf4 + " comments");
+  $(".impressions-5").text(engWtf4);
 
   //  console.log(resultsB.CachedCommentCount);
   var contentWTF4 = resultsB[4].Series.Description;
@@ -505,7 +505,7 @@ $(".li-c").click(function(){
     //console.log(resultsC);
 
     var randNum = Math.floor(Math.random() * 1000);
-    $(".impressions-1").text(randNum + " random number");
+    $(".impressions-1").text(randNum);
     $(".first-h").text(newsTitle);
     $(".uno").attr("src", newsImg);
     $(".uno").css("max-width", "100%");
@@ -530,7 +530,7 @@ $(".li-c").click(function(){
     //console.log(resultsC);
 
     var randNum1 = Math.floor(Math.random() * 1000);
-    $(".impressions-2").text(randNum1 + " random number");
+    $(".impressions-2").text(randNum1);
     $(".second-h").text(newsTitle1);
     $(".dos").attr("src", newsImg1);
     $(".dos").css("max-width", "100%");
@@ -555,7 +555,7 @@ $(".li-c").click(function(){
     //console.log(resultsC);
 
     var randNum2 = Math.floor(Math.random() * 1000);
-    $(".impressions-3").text(randNum2 + " random number");
+    $(".impressions-3").text(randNum2);
     $(".third-h").text(newsTitle2);
     $(".tres").attr("src", newsImg2);
     $(".tres").css("max-width", "100%");
@@ -580,7 +580,7 @@ $(".li-c").click(function(){
     //console.log(resultsC);
 
     var randNum3 = Math.floor(Math.random() * 1000);
-    $(".impressions-4").text(randNum3 + " random number");
+    $(".impressions-4").text(randNum3);
     $(".fourth-h").text(newsTitle3);
     $(".quatro").attr("src", newsImg3);
     $(".quatro").css("max-width", "100%");
@@ -604,7 +604,7 @@ $(".li-c").click(function(){
     //console.log(resultsC);
 
     var randNum4 = Math.floor(Math.random() * 1000);
-    $(".impressions-5").text(randNum4 + " random number");
+    $(".impressions-5").text(randNum4);
     $(".fifth-h").text(newsTitle4);
     $(".cinco").attr("src", newsImg4);
     $(".cinco").css("max-width", "100%");
@@ -633,7 +633,7 @@ $(".li-d").click(function(){
     var gDescription = "The title says it all, doesn't it?";;
     var gURL = resultsD.response.results[0].webUrl;
     var gImg = "images/g.jpg";
-    $(".impressions-1").text(randNumB + " random number");
+    $(".impressions-1").text(randNumB);
 
     $(".first-h").text(gTitle);
     $(".uno").attr("src", gImg);
@@ -662,7 +662,7 @@ $(".li-d").click(function(){
     var gDescription1 = "The title says it all, doesn't it?";;
     var gURL1 = resultsD.response.results[1].webUrl;
     var gImg1 = "images/g.jpg";
-    $(".impressions-2").text(randNumC + " random number");
+    $(".impressions-2").text(randNumC);
 
     $(".second-h").text(gTitle1);
     $(".dos").attr("src", gImg1);
@@ -689,7 +689,7 @@ $(".li-d").click(function(){
     var gDescription2 = "The title says it all, doesn't it?";;
     var gURL2 = resultsD.response.results[2].webUrl;
     var gImg2 = "images/g.jpg";
-    $(".impressions-3").text(randNumD + " random number");
+    $(".impressions-3").text(randNumD);
 
     $(".third-h").text(gTitle2);
     $(".tres").attr("src", gImg2);
@@ -717,7 +717,7 @@ $(".li-d").click(function(){
     var gDescription3 = "The title says it all, doesn't it?";;
     var gURL3 = resultsD.response.results[3].webUrl;
     var gImg3 = "images/g.jpg";
-    $(".impressions-4").text(randNumE + " random number");
+    $(".impressions-4").text(randNumE);
 
     $(".fourth-h").text(gTitle3);
     $(".quatro").attr("src", gImg3);
@@ -745,7 +745,7 @@ $(".li-d").click(function(){
     var gDescription4 = "The title says it all, doesn't it?";;
     var gURL4 = resultsD.response.results[4].webUrl;
     var gImg4 = "images/g.jpg";
-    $(".impressions-5").text(randNumF + " random number");
+    $(".impressions-5").text(randNumF);
 
     $(".fifth-h").text(gTitle4);
     $(".cinco").attr("src", gImg4);
@@ -782,7 +782,7 @@ var rURL = "https://www.reddit.com" + resultsE.data.children[0].data.permalink;
 var rImage = resultsE.data.children[0].data.thumbnail;
 var rEng = resultsE.data.children[0].data.ups;
 console.log(resultsE);
-$(".impressions-1").text(rEng + " upvotes");
+$(".impressions-1").text(rEng);
 
 if (rImage === "self") {
   console.log("hooya");
@@ -812,7 +812,7 @@ $(".first-link").click(function(){
   var rImage1 = resultsE.data.children[1].data.thumbnail;
   var rEng1 = resultsE.data.children[1].data.ups;
   console.log("poop" + resultsE.data.children);
-  $(".impressions-2").text(rEng1 + " upvotes");
+  $(".impressions-2").text(rEng1);
 
   if (rImage1 === "self") {
     //console.log("hooya");
@@ -843,7 +843,7 @@ $(".first-link").click(function(){
     var rImage2 = resultsE.data.children[2].data.thumbnail;
     var rEng2 = resultsE.data.children[2].data.ups;
     console.log("poop" + resultsE.data.children);
-    $(".impressions-3").text(rEng2 + " upvotes");
+    $(".impressions-3").text(rEng2);
 
     if (rImage2 === "self") {
       //console.log("hooya");
@@ -874,7 +874,7 @@ $(".first-link").click(function(){
       var rImage3 = resultsE.data.children[3].data.thumbnail;
       var rEng3 = resultsE.data.children[3].data.ups;
       console.log("poop" + resultsE.data.children);
-      $(".impressions-4").text(rEng3 + " upvotes");
+      $(".impressions-4").text(rEng3);
 
       if (rImage3 === "self") {
         //console.log("hooya");
@@ -906,7 +906,7 @@ $(".first-link").click(function(){
         var rImage4 = resultsE.data.children[4].data.thumbnail;
         var rEng4 = resultsE.data.children[4].data.ups;
         console.log("poop" + resultsE.data.children);
-        $(".impressions-5").text(rEng4 + " upvotes");
+        $(".impressions-5").text(rEng4);
 
         if (rImage4 === "self") {
           //console.log("hooya");
@@ -968,7 +968,7 @@ $(".logo").click(function (event){
     var URLDigg = results.data.feed[0].content.original_url;
     var imgDigg = results.data.feed[0].content.media.images[0].original_url;
     var diggEng = results.data.feed[0].digg_score;
-    $(".impressions-1").text(diggEng + " diggs");
+    $(".impressions-1").text(diggEng);
 
     $(".first-h").text(titleDigg);
     $(".lifea").text(tagDigg);
@@ -996,7 +996,7 @@ $(".logo").click(function (event){
     $(".second-h").text(titleWTF);
     var wtfImg = "images/wtf.png";
     var engWtf = resultsB.CachedCommentCount;
-    $(".impressions-2").text(engWtf + " comments");
+    $(".impressions-2").text(engWtf);
 
   //  console.log(resultsB.CachedCommentCount);
     var contentWTF = resultsB.Series.Description;
@@ -1030,7 +1030,7 @@ $(".logo").click(function (event){
     //console.log(resultsC);
 
     var randNum = Math.floor(Math.random() * 1000);
-    $(".impressions-3").text(randNum + " random number");
+    $(".impressions-3").text(randNum);
     $(".third-h").text(newsTitle);
     $(".tres").attr("src", newsImg);
     $(".tres").css("max-width", "100%");
@@ -1057,7 +1057,7 @@ $(".logo").click(function (event){
     var gDescription = "The title says it all, doesn't it?";;
     var gURL = resultsD.response.results[randNum].webUrl;
     var gImg = "images/g.jpg";
-    $(".impressions-4").text(randNumB + " random number");
+    $(".impressions-4").text(randNumB);
 
     $(".fourth-h").text(gTitle);
     $(".quatro").attr("src", gImg);
@@ -1091,7 +1091,7 @@ $(".logo").click(function (event){
     var rImage = resultsE.data.children[0].data.thumbnail;
     var rEng = resultsE.data.children[0].data.ups;
     console.log(resultsE);
-    $(".impressions-5").text(rEng + " upvotes");
+    $(".impressions-5").text(rEng);
 
     if (rImage === "self") {
       console.log("hooya");
@@ -1101,9 +1101,7 @@ $(".logo").click(function (event){
     $(".fifth-h").text(rTitle);
     $(".cinco").attr("src", rImage);
     $(".cinco").css("max-width", "100%");
-
     $(".cinco").css("border-radius", 50);
-
     $(".fifth-link").click(function(){
 
       //console.log(resultsD);
